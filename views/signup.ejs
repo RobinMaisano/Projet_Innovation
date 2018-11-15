@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <% include partials/head.ejs %>
+    <title>Signup</title>
+
+</head>
+
+<body>
+
+    <form action="/signup" class="signup-form" method="post" name="signup-form" id="signup-form">
+        <label class="form-label">Email</label>
+        <input class="form-control" id="txtusername" name="email" type="text" placeholder="email">
+        <br>
+        <label class="form-label">Password</label>
+        <input class="form-control" id="txtpassword" name="password" type="password" placeholder="password">
+        <br>
+        <label class="form-label">City</label>
+        <input class="form-control" id="txtcity" name="city" type="text" placeholder="city">
+        <br>
+        <button type="submit">Signup</button>
+    </form>
+
+</body>
+
+
+    <% include partials/footer.ejs %>
+
+</html>

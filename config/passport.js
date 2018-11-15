@@ -55,6 +55,8 @@ module.exports = function(passport) {
                         newUser.status  = "student";
                         newUser.city    = req.body.city;
                         newUser.licenseExpiration = "111";
+                        newUser.lastLocation = "";
+                        newUser.doNotDisturb = false;
 
                         //Save the new user
                         newUser.save(function (err) {

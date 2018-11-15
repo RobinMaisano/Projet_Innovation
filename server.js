@@ -3,7 +3,8 @@
 const express   = require('express');
 const app       = express();
 
-app.use(express.static(__dirname + "/views"));  // Directory used by template tool
+app.use(express.static(__dirname + "/public"));  // Directory used by template tool
+
 const port      = process.env.PORT || 9099;
 
 const uuid      = require('uuid/v4');       //Generate random ID

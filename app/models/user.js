@@ -6,7 +6,7 @@ const bcrypt    = require('bcrypt-nodejs');
 // Schema for user model
 var userSchema  = mongoose.Schema({
 
-    id              : Number,
+    // id              : Number, NEVER UNCOMMENT THIS, MONGO GENERATES ID AUTOMATICALLY
     email           : String,
     password        : String,
     status          : String,

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+    <% include partials/head.ejs %>
+
+    <title>Tutors</title>
+</head>
+
+<body class="text-center">
+
+    <% if(tutors.length > 0){
+
+        tutors.forEach(function (tutor) { %>
+
+            <%= tutor.email %> can be found in <%= tutor.lastLocation %>
+            <br>
+
+    <%
+        } )
+    }else{ %>
+
+        No tuteur found
+
+        <%
+        }%>
+
+</body>
+
+<% include partials/footer.ejs %>
+
+</html>

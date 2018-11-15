@@ -1,21 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
+
+    <% include partials/head.ejs %>
 
     <title>Login</title>
 </head>
 
-<body>
 
-    <form action="/login" class="login-form" method="post" name="login-form" id="login-form">
-        <label class="form-label">Email</label>
-        <input class="form-control" id="txtusername" name="email" type="text" placeholder="email">
-        <br>
-        <label class="form-label">Password</label>
-        <input class="form-control" id="txtpassword" name="password" type="password" placeholder="password">
-        <br>
-        <button type="submit">Login</button>
+<body class="text-center">
+<div class="container col-md-6">
+    <form action="/login" class="form-signin" method="post" name="login-form" id="login-form">
+        <img class="center" src="img/logo_cesi.png" alt="Logo Cesi">
+
+        <h1 class="h3 mb-3 font-weight-normal">Login</h1>
+        <div class="row">
+
+            <label class="form-label">Email</label>
+            <input class="form-control" id="txtusername" name="email" type="text" placeholder="email">
+
+            <label class="form-label">Password</label>
+            <input class="form-control mb-3" id="txtpassword" name="password" type="password" placeholder="password">
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+            <p class="mt-5 mb-3 text-muted">© 2017-2018</p>
+
+        </div>
     </form>
+</div>
 
 </body>
+
+    <% include partials/footer.ejs %>
+
 </html>
