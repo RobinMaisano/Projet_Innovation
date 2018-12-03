@@ -56,3 +56,5 @@ require('./app/routes')(app, passport);
 // Launch --------------------------------
 app.listen(port);
 console.log('App listening on port ' + port + ' !');
+
+// Run server with cmd :  npm run dev:server

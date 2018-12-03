@@ -8,6 +8,8 @@ var userSchema  = mongoose.Schema({
 
     // id              : Number, NEVER UNCOMMENT THIS, MONGO GENERATES ID AUTOMATICALLY
     email           : String,
+    firstname       : String,
+    lastname        : String,
     password        : String,
     status          : String,
     city            : String,

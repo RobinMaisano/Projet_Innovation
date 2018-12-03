@@ -9,9 +9,10 @@
 
 
 <body class="text-center">
-<div class="container col-md-6">
+<div class="container col-md-6 col-10">
     <form action="/login" class="form-signin" method="post" name="login-form" id="login-form">
-        <img class="center" src="img/logo_cesi.png" alt="Logo Cesi">
+        <img class="mx-auto d-none d-sm-block" src="img/logo_cesi.png" alt="Logo Cesi">
+        <img class="mx-auto d-block d-sm-none" src="img/logo_cesi_small.png" alt="Logo Cesi">
 
         <h1 class="h3 mb-3 font-weight-normal">Login</h1>
         <div class="row">
@@ -23,7 +24,7 @@
             <input class="form-control mb-3" id="txtpassword" name="password" type="password" placeholder="password">
 
             <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-            <p class="mt-5 mb-3 text-muted">© 2017-2018</p>
+            <p class="fixed-bottom mt-5 mb-3 text-muted">© 2017-2018</p>
 
         </div>
     </form>

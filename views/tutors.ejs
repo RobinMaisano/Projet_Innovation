@@ -5,26 +5,48 @@
     <% include partials/head.ejs %>
 
     <title>Tutors</title>
+
 </head>
 
 <body class="text-center">
+<div class="container col-md-6 col-sd-6">
 
-    <% if(tutors.length > 0){
+    <img class="mx-auto d-none d-sm-block" src="img/logo_cesi.png" alt="Logo Cesi">
+    <img class="mx-auto d-block d-sm-none" src="img/logo_cesi_small.png" alt="Logo Cesi">
+
+
+<% if(tutors.length > 0){ %>
+        <div class="card-deck">
+
+        <%
 
         tutors.forEach(function (tutor) { %>
 
-            <%= tutor.email %> can be found in <%= tutor.lastLocation %>
-            <br>
+            <div class="card bg-primary text-white">
+                <div class="card-body">
+                    <h5 class="card-title"><%= tutor.firstname %> <%= tutor.lastname%></h5>
+                    <p class="card-text">Emplacement le plus récent : <a href="/map/<%=tutor.lastLocation%>" style="color: #FFF;"><%= tutor.lastLocation %></a></p>
+             <!--       <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>    -->
+                </div>
+            </div>
+
+
+
+
+
 
     <%
-        } )
-    }else{ %>
+        } )%>
+        </div>
 
-        No tuteur found
+    <%
+        }else{ %>
+
+        Aucun tuteur n'a été trouvé, désolé ! Contactez robin.maisano@viacesi.fr pour toute demande ou bug ! Merci
 
         <%
         }%>
-
+</div>
 </body>
 
 <% include partials/footer.ejs %>

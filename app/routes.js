@@ -8,59 +8,20 @@ const User          = require('./models/user');
 
 // ------------
 // INDEX ROUTE
-    app.get('/', function(req, res){
+    app.get('/', isLoggedIn, function(req, res){
 
         // res.redirect("/login");
-        res.send('index');
+        res.redirect("/tutors");
+        // res.send('index');
         // res.render('index')
 
     });
 
 
 // ------------
-// SIGN UP ROUTES
-    app.get('/signup', function (req, res) {
-        if(req.isAuthenticated()){
-            req.flash();
-            res.redirect('/')
-        }else{
-            res.render('signup')
-        }
-    });
+// AUTHENTICATION
+    require('./routes/authentification')(app, passport, User);
 
-    app.post('/signup', /*isPasswordConfirmed,*/ passport.authenticate('local-signup', {
-        successRedirect: '/login',
-        failureRedirect: '/signup',
-        failureFlash: true
-    }));
-
-
-// ------------
-// LOGIN ROUTES
-    app.get('/login', function (req, res) {
-        // If user is already logged in
-        if(req.isAuthenticated()){
-            req.flash('indexMessage',"You'r already authenticated.");
-            res.redirect('/')
-        }else {
-            res.render('login', {message: req.flash('loginMessage')});
-        }
-    });
-
-    app.post('/login',passport.authenticate('local-login', {
-        // successRedirect: '/',
-        successRedirect: '/login',
-        failureRedirect: '/login',
-        failureFlash: true
-    }));
-
-
-// ------------
-// LOGOUT
-    app.get('/logout', function (req, res) {
-        req.logout();
-        res.redirect('/login')
-    });
 
 
 // ------------
@@ -83,6 +44,39 @@ const User          = require('./models/user');
     });
 
 
+// ------------
+// UPDATE LOCALISATION
+    app.get('/updateLocal/:email/:localisation/:hash', function (req, res) {
+
+        // Set all URL parameters in tab
+        if(req.params.hash === "81cc0e0f1c871be52b881c7fd9b9f989") {
+            var param = {
+                email: req.params.email,
+                localisation: req.params.localisation,
+            };
+            param.localisation = param.localisation.toLowerCase();
+            param.localisation = param.localisation.charAt(0).toUpperCase() + param.localisation.slice(1);
+
+            User.findOneAndUpdate({ email: param.email}, {lastLocation: param.localisation}, function (err, docs) {
+                if(err)
+                    console.log("Something was wrong updating data ! :(");
+                else
+                    res.send('200');
+            })
+
+        }
+    });
+
+
+// ------------
+// DISPLAY MAP
+ app.get('/map/:localisation', function (req, res) {
+
+    res.render('location', {
+        image: req.params.localisation
+    });
+
+ });
 
 
 // ------------
